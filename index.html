@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workshop Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Workshop Management System</h1>
+</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Workshop Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Manage Online Workshops and Training Sessions</h1>
+    <p class="subtitle">
+        Platform for facilitating registration and scheduling of online workshops
+    </p>
+
+    <div class="container">
+
+        <!-- Admin Section -->
+        <div class="card">
+            <h2>Admin</h2>
+            <p>Organize & Schedule</p>
+
+            <input type="text" id="workshopTitle" placeholder="Workshop Title">
+            <input type="date" id="workshopDate">
+            <input type="time" id="workshopTime">
+
+            <button onclick="createWorkshop()">Create Workshop</button>
+        </div>
+
+        <!-- Registration Section -->
+        <div class="card main-card">
+            <h2>Registration</h2>
+
+            <input type="text" id="name" placeholder="Name">
+            <input type="email" id="email" placeholder="Email">
+
+            <button onclick="registerUser()">Register</button>
+
+            <p id="status"></p>
+        </div>
+
+        <!-- User Section -->
+        <div class="card">
+            <h2>User</h2>
+            <p>Register for Participation</p>
+
+            <div id="workshopDetails">
+                <em>No workshop created yet</em>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<div class="container">
+  <h2>Welcome to Workshop Portal</h2>
+  <p>Manage and enroll in workshops easily.</p>
+
+  <a href="login.html">
+    <button class="primary">Login</button>
+  </a>
+
+  <a href="workshops.html">
+    <button class="success">View Workshops</button>
+  </a>
+</div>
+
+</body>
+</html>

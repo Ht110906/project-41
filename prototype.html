@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Workshop & Training Platform</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI,Arial;
+    background:#f4f6fb;
+}
+header{
+    background:#243b8a;
+    color:#fff;
+    padding:22px;
+    text-align:center;
+}
+nav{
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:12px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+nav button{
+    padding:8px 14px;
+    border:none;
+    background:#243b8a;
+    color:#fff;
+    border-radius:6px;
+    cursor:pointer;
+}
+nav button:hover{background:#182a63}
+
+.screen{display:none;padding:30px}
+.active{display:block}
+
+.card{
+    background:#fff;
+    max-width:1050px;
+    margin:auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+h2,h3{color:#243b8a}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.box{
+    background:#eef2ff;
+    padding:15px;
+    border-radius:8px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:8px;
+    margin:6px 0;
+}
+
+.btn{
+    background:#243b8a;
+    color:#fff;
+    padding:8px 15px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+.btn.green{background:#28a745}
+.btn.orange{background:#f0ad4e}
+
+.tag{
+    padding:3px 8px;
+    border-radius:4px;
+    font-size:12px;
+}
+.upcoming{background:#ffc107}
+.completed{background:#28a745;color:#fff}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th,td{
+    padding:8px;
+    border-bottom:1px solid #ccc;
+}
+
+footer{
+    background:#eaeaea;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Online Workshop & Training Management System</h1>
+<p>Student & Admin Dashboard Prototype</p>
+</header>
+
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('login')">Login</button>
+<button onclick="show('register')">Register</button>
+<button onclick="show('user')">User Dashboard</button>
+<button onclick="show('admin')">Admin Dashboard</button>
+<button onclick="show('live')">Live Session</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="screen active">
+<div class="card">
+<h2>Student Journey – Online Workshop Flow</h2>
+<p>Browse → Register → Attend → Learn → Get Certificate</p>
+
+<div class="grid">
+<div class="box">
+<b>Web Development Bootcamp</b><br>
+Date: 25 April<br>
+Time: 3:00 PM<br><br>
+<button class="btn">Register</button>
+</div>
+<div class="box">
+<b>AI & Machine Learning</b><br>
+Date: 30 April<br>
+Time: 6:00 PM<br><br>
+<button class="btn">Register</button>
+</div>
+<div class="box">
+<b>Data Science with Python</b><br>
+Date: 5 May<br>
+Time: 5:00 PM<br><br>
+<button class="btn">Register</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="screen">
+<div class="card">
+<h2>Login</h2>
+<input placeholder="Email">
+<input type="password" placeholder="Password">
+
+<select id="role">
+<option value="user">User</option>
+<option value="admin">Admin</option>
+</select>
+
+<button class="btn" onclick="login()">Login</button>
+</div>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="screen">
+<div class="card">
+<h2>Register</h2>
+<input placeholder="Full Name">
+<input placeholder="Email">
+<input placeholder="Mobile">
+<input type="password" placeholder="Password">
+
+<select>
+<option>User</option>
+<option>Admin</option>
+</select>
+
+<button class="btn green">Create Account</button>
+</div>
+</div>
+
+<!-- USER DASHBOARD -->
+<div id="user" class="screen">
+<div class="card">
+<h2>User Dashboard</h2>
+
+<h3>My Workshops</h3>
+<table>
+<tr><th>Workshop</th><th>Date</th><th>Status</th><th>Action</th></tr>
+<tr>
+<td>Web Development</td>
+<td>25 April</td>
+<td><span class="tag upcoming">Upcoming</span></td>
+<td><button class="btn" onclick="show('live')">Join</button></td>
+</tr>
+<tr>
+<td>AI & ML</td>
+<td>30 April</td>
+<td><span class="tag upcoming">Upcoming</span></td>
+<td><button class="btn">Join</button></td>
+</tr>
+<tr>
+<td>Data Science</td>
+<td>5 May</td>
+<td><span class="tag completed">Completed</span></td>
+<td><button class="btn green">View</button></td>
+</tr>
+</table>
+
+<div class="box" style="margin-top:20px">
+<b>Post Workshop Activities</b>
+<ul>
+<li>Download Notes</li>
+<li>Watch Recorded Video</li>
+<li>Submit Feedback</li>
+<li>Download Certificate</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="admin" class="screen">
+<div class="card">
+<h2>Admin Dashboard</h2>
+
+<div class="grid">
+<div class="box"><b>Total Workshops</b><br>12</div>
+<div class="box"><b>Total Users</b><br>520</div>
+<div class="box"><b>Upcoming Sessions</b><br>4</div>
+<div class="box"><b>Completed</b><br>8</div>
+</div>
+
+<div class="box" style="margin-top:20px">
+<h3>Create Workshop</h3>
+<input placeholder="Workshop Title">
+<input type="date">
+<input placeholder="Trainer Name">
+<button class="btn green">Create</button>
+</div>
+
+<div class="box" style="margin-top:15px">
+<h3>Admin Controls</h3>
+<ul>
+<li>Approve Registrations</li>
+<li>Upload Materials</li>
+<li>Monitor Live Sessions</li>
+<li>Generate Reports</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- LIVE SESSION -->
+<div id="live" class="screen">
+<div class="card">
+<h2>Live Workshop – Web Development</h2>
+
+<div class="grid">
+<div class="box">
+<b>Video Conference</b><br><br>
+<button class="btn">Join Live Session</button>
+</div>
+
+<div class="box">
+<b>Resources</b>
+<ul>
+<li>Slides.pdf</li>
+<li>SourceCode.zip</li>
+</ul>
+</div>
+
+<div class="box">
+<b>Live Chat</b>
+<p>Trainer: Welcome everyone!</p>
+<textarea placeholder="Type your message"></textarea>
+</div>
+</div>
+
+<button class="btn orange" style="margin-top:15px">Submit Feedback</button>
+</div>
+</div>
+
+<footer>
+<p>FSAD Project | Online Workshop Management System</p>
+</footer>
+
+<script>
+function show(id){
+    document.querySelectorAll('.screen')
+    .forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+function login(){
+    const role=document.getElementById("role").value;
+    if(role==="admin") show('admin');
+    else show('user');
+}
+</script>
+
+</body>
+</html>
