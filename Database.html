@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Database Design – Workshop Management System</title>
+
+<style>
+body{
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f4f6fb;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:25px;
+}
+
+.schema{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.table-box{
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    padding:20px;
+}
+
+.table-box h2{
+    color:#2563eb;
+    border-bottom:2px solid #e5e7eb;
+    padding-bottom:8px;
+    margin-bottom:10px;
+}
+
+.table-box ul{
+    list-style:none;
+    padding-left:0;
+}
+
+.table-box li{
+    padding:6px 0;
+    border-bottom:1px dashed #d1d5db;
+    font-size:14px;
+}
+
+.pk{color:#16a34a;font-weight:bold}
+.fk{color:#dc2626;font-weight:bold}
+
+footer{
+    margin-top:40px;
+    text-align:center;
+    font-size:14px;
+    color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Database Arrangement – Online Workshop Management System</h1>
+
+<div class="schema">
+
+    <!-- USERS TABLE -->
+    <div class="table-box">
+        <h2>Users</h2>
+        <ul>
+            <li><span class="pk">user_id</span> (Primary Key)</li>
+            <li>full_name</li>
+            <li>email</li>
+            <li>password</li>
+            <li>mobile</li>
+            <li>role (Admin / User)</li>
+            <li>created_at</li>
+        </ul>
+    </div>
+
+    <!-- WORKSHOPS TABLE -->
+    <div class="table-box">
+        <h2>Workshops</h2>
+        <ul>
+            <li><span class="pk">workshop_id</span> (Primary Key)</li>
+            <li>title</li>
+            <li>description</li>
+            <li>date</li>
+            <li>time</li>
+            <li>trainer_name</li>
+            <li>status (Upcoming / Completed)</li>
+        </ul>
+    </div>
+
+    <!-- REGISTRATION TABLE -->
+    <div class="table-box">
+        <h2>Registrations</h2>
+        <ul>
+            <li><span class="pk">registration_id</span> (Primary Key)</li>
+            <li><span class="fk">user_id</span> (Foreign Key)</li>
+            <li><span class="fk">workshop_id</span> (Foreign Key)</li>
+            <li>registration_date</li>
+            <li>attendance_status</li>
+        </ul>
+    </div>
+
+    <!-- LIVE SESSIONS TABLE -->
+    <div class="table-box">
+        <h2>Live Sessions</h2>
+        <ul>
+            <li><span class="pk">session_id</span> (Primary Key)</li>
+            <li><span class="fk">workshop_id</span> (Foreign Key)</li>
+            <li>meeting_link</li>
+            <li>start_time</li>
+            <li>end_time</li>
+        </ul>
+    </div>
+
+    <!-- MATERIALS TABLE -->
+    <div class="table-box">
+        <h2>Materials</h2>
+        <ul>
+            <li><span class="pk">material_id</span> (Primary Key)</li>
+            <li><span class="fk">workshop_id</span> (Foreign Key)</li>
+            <li>material_title</li>
+            <li>file_url</li>
+            <li>upload_date</li>
+        </ul>
+    </div>
+
+    <!-- FEEDBACK TABLE -->
+    <div class="table-box">
+        <h2>Feedback</h2>
+        <ul>
+            <li><span class="pk">feedback_id</span> (Primary Key)</li>
+            <li><span class="fk">user_id</span> (Foreign Key)</li>
+            <li><span class="fk">workshop_id</span> (Foreign Key)</li>
+            <li>rating</li>
+            <li>comments</li>
+            <li>submitted_on</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    FSAD Mini Project | Database Schema Representation
+</footer>
+
+</body>
+</html>
