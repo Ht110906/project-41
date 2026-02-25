@@ -1,38 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Workshops</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Available Workshops | Workshop Management System</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f1f5f9;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(90deg, #2563eb, #1e40af);
+      color: white;
+      padding: 22px 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    .intro {
+      margin-bottom: 25px;
+      color: #475569;
+      font-size: 15px;
+    }
+
+    .table-box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+    }
+
+    th {
+      background: #1e3a8a;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .btn-enroll {
+      padding: 8px 18px;
+      background: #16a34a;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-enroll:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .actions {
+      text-align: right;
+    }
+
+    .btn-back {
+      padding: 10px 18px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-back:hover {
+      background: #1e40af;
+    }
+
+    @media (max-width: 768px) {
+      .actions {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Available Workshops</h1>
-</header>
+  <header>
+    <h1>Available Workshops</h1>
+  </header>
 
-<div class="container">
-  <table>
-    <tr>
-      <th>Workshop Name</th>
-      <th>Date</th>
-      <th>Action</th>
-    </tr>
-    <tr>
-      <td>Web Development</td>
-      <td>2026-03-15</td>
-      <td><button class="success">Enroll</button></td>
-    </tr>
-    <tr>
-      <td>AI & Machine Learning</td>
-      <td>2026-04-10</td>
-      <td><button class="success">Enroll</button></td>
-    </tr>
-  </table>
+  <div class="container">
+    <p class="intro">
+      Explore and enroll in upcoming online workshops and professional training programs.
+    </p>
 
-  <a href="index.html">
-    <button class="primary">Back to Home</button>
-  </a>
-</div>
+    <div class="table-box">
+      <table>
+        <tr>
+          <th>Workshop Name</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>Web Development</td>
+          <td>15 March 2026</td>
+          <td><button class="btn-enroll">Enroll</button></td>
+        </tr>
+        <tr>
+          <td>AI & Machine Learning</td>
+          <td>20 March 2026</td>
+          <td><button class="btn-enroll">Enroll</button></td>
+        </tr>
+        <tr>
+          <td>Data Science with Python</td>
+          <td>25 March 2026</td>
+          <td><button class="btn-enroll">Enroll</button></td>
+        </tr>
+        <tr>
+          <td>Cloud Computing (AWS)</td>
+          <td>30 March 2026</td>
+          <td><button class="btn-enroll">Enroll</button></td>
+        </tr>
+        <tr>
+          <td>Cyber Security Essentials</td>
+          <td>05 April 2026</td>
+          <td><button class="btn-enroll">Enroll</button></td>
+        </tr>
+        <tr>
+          <td>Full Stack Development</td>
+          <td>10 April 2026</td>
+          <td><button class="btn-enroll">Enroll</button></td>
+        </tr>
+        <tr>
+          <td>DevOps & CI/CD</td>
+          <td>15 April 2026</td>
+          <td><button class="btn-enroll">Enroll</button></td>
+        </tr>
+        <tr>
+          <td>UI/UX Design</td>
+          <td>20 April 2026</td>
+          <td><button class="btn-enroll">Enroll</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="actions">
+      <a href="index.html">
+        <button class="btn-back">Back to Home</button>
+      </a>
+    </div>
+  </div>
 
 </body>
 </html>

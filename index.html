@@ -1,82 +1,202 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Workshop Management System</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <h1>Workshop Management System</h1>
-</header>
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Online Workshop Management</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshop Management System</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f1f5f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #1e3a8a;
+      color: white;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #475569;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      text-align: left;
+    }
+
+    .card h2 {
+      color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #64748b;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .primary:hover {
+      background: #1e40af;
+    }
+
+    .success {
+      background: #16a34a;
+      color: white;
+    }
+
+    .success:hover {
+      background: #15803d;
+    }
+
+    .links {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    #status {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #16a34a;
+    }
+
+    #workshopDetails {
+      margin-top: 10px;
+      font-style: italic;
+      color: #475569;
+    }
+  </style>
 </head>
+
 <body>
 
-    <h1>Manage Online Workshops and Training Sessions</h1>
-    <p class="subtitle">
-        Platform for facilitating registration and scheduling of online workshops
-    </p>
+  <!-- Header -->
+  <header>
+    <h1>Workshop Management System</h1>
+    <p>Manage Online Workshops and Training Sessions</p>
+  </header>
 
-    <div class="container">
+  <p class="subtitle">
+    Platform for facilitating registration and scheduling of online workshops
+  </p>
 
-        <!-- Admin Section -->
-        <div class="card">
-            <h2>Admin</h2>
-            <p>Organize & Schedule</p>
+  <!-- Main Content -->
+  <div class="container">
 
-            <input type="text" id="workshopTitle" placeholder="Workshop Title">
-            <input type="date" id="workshopDate">
-            <input type="time" id="workshopTime">
+    <!-- Admin Section -->
+    <div class="card">
+      <h2>Admin Panel</h2>
+      <p>Create & Schedule Workshops</p>
 
-            <button onclick="createWorkshop()">Create Workshop</button>
-        </div>
+      <input type="text" id="workshopTitle" placeholder="Workshop Title">
+      <input type="date" id="workshopDate">
+      <input type="time" id="workshopTime">
 
-        <!-- Registration Section -->
-        <div class="card main-card">
-            <h2>Registration</h2>
-
-            <input type="text" id="name" placeholder="Name">
-            <input type="email" id="email" placeholder="Email">
-
-            <button onclick="registerUser()">Register</button>
-
-            <p id="status"></p>
-        </div>
-
-        <!-- User Section -->
-        <div class="card">
-            <h2>User</h2>
-            <p>Register for Participation</p>
-
-            <div id="workshopDetails">
-                <em>No workshop created yet</em>
-            </div>
-        </div>
-
+      <button class="primary" onclick="createWorkshop()">Create Workshop</button>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Registration Section -->
+    <div class="card">
+      <h2>User Registration</h2>
+      <p>Register for available workshops</p>
 
-<div class="container">
-  <h2>Welcome to Workshop Portal</h2>
-  <p>Manage and enroll in workshops easily.</p>
+      <input type="text" id="name" placeholder="Full Name">
+      <input type="email" id="email" placeholder="Email Address">
 
-  <a href="login.html">
-    <button class="primary">Login</button>
-  </a>
+      <button class="primary" onclick="registerUser()">Register</button>
+      <p id="status"></p>
+    </div>
 
-  <a href="workshops.html">
-    <button class="success">View Workshops</button>
-  </a>
-</div>
+    <!-- Workshop Details -->
+    <div class="card">
+      <h2>Workshop Details</h2>
+      <p>Available workshop information</p>
+
+      <div id="workshopDetails">
+        No workshop created yet
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="links">
+    <a href="login.html"><button class="primary">Login</button></a>
+    <a href="workshops.html"><button class="success">View Workshops</button></a>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function createWorkshop() {
+      const title = document.getElementById("workshopTitle").value;
+      const date = document.getElementById("workshopDate").value;
+      const time = document.getElementById("workshopTime").value;
+
+      if (!title || !date || !time) {
+        alert("Please fill all workshop details");
+        return;
+      }
+
+      document.getElementById("workshopDetails").innerHTML =
+        `<strong>${title}</strong><br>Date: ${date}<br>Time: ${time}`;
+    }
+
+    function registerUser() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      if (!name || !email) {
+        alert("Please enter name and email");
+        return;
+      }
+
+      document.getElementById("status").innerText =
+        "Registration successful!";
+    }
+  </script>
 
 </body>
 </html>

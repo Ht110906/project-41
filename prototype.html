@@ -2,104 +2,148 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Online Workshop & Training Platform</title>
 
 <style>
+:root{
+  --primary:#1e3a8a;
+  --secondary:#2563eb;
+  --success:#16a34a;
+  --warning:#f59e0b;
+  --light:#f8fafc;
+  --dark:#0f172a;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Segoe UI,Arial;
-    background:#f4f6fb;
+  background:var(--light);
+  color:var(--dark);
 }
+
+/* HEADER */
 header{
-    background:#243b8a;
-    color:#fff;
-    padding:22px;
-    text-align:center;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  color:#fff;
+  padding:28px;
+  text-align:center;
 }
+header h1{font-size:28px}
+header p{opacity:.9}
+
+/* NAVBAR */
 nav{
-    background:#fff;
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    padding:12px;
-    box-shadow:0 2px 5px rgba(0,0,0,.1);
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 nav button{
-    padding:8px 14px;
-    border:none;
-    background:#243b8a;
-    color:#fff;
-    border-radius:6px;
-    cursor:pointer;
+  padding:9px 16px;
+  border:none;
+  border-radius:20px;
+  background:var(--primary);
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
 }
-nav button:hover{background:#182a63}
+nav button:hover{background:var(--secondary)}
 
-.screen{display:none;padding:30px}
+/* SCREEN CONTROL */
+.screen{display:none;padding:35px}
 .active{display:block}
 
+/* CARD */
 .card{
-    background:#fff;
-    max-width:1050px;
-    margin:auto;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
+  max-width:1150px;
+  margin:auto;
+  background:#fff;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
 }
 
-h2,h3{color:#243b8a}
+h2,h3{
+  color:var(--primary);
+  margin-bottom:10px;
+}
 
+/* GRID */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
 }
 
+/* BOX */
 .box{
-    background:#eef2ff;
-    padding:15px;
-    border-radius:8px;
+  background:#eef2ff;
+  padding:18px;
+  border-radius:10px;
 }
 
+/* FORM */
 input,select,textarea{
-    width:100%;
-    padding:8px;
-    margin:6px 0;
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  border:1px solid #cbd5f5;
 }
 
+/* BUTTONS */
 .btn{
-    background:#243b8a;
-    color:#fff;
-    padding:8px 15px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
+  padding:10px 18px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:600;
+  background:var(--primary);
+  color:#fff;
 }
-.btn.green{background:#28a745}
-.btn.orange{background:#f0ad4e}
+.btn:hover{background:var(--secondary)}
+.btn.success{background:var(--success)}
+.btn.warning{background:var(--warning);color:#000}
 
+/* TAGS */
 .tag{
-    padding:3px 8px;
-    border-radius:4px;
-    font-size:12px;
+  padding:4px 10px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:600;
 }
-.upcoming{background:#ffc107}
-.completed{background:#28a745;color:#fff}
+.upcoming{background:var(--warning)}
+.completed{background:var(--success);color:#fff}
 
+/* TABLE */
 table{
-    width:100%;
-    border-collapse:collapse;
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
 }
 th,td{
-    padding:8px;
-    border-bottom:1px solid #ccc;
+  padding:12px;
+  border-bottom:1px solid #ddd;
+  text-align:left;
 }
+th{background:#e0e7ff}
 
+/* FOOTER */
 footer{
-    background:#eaeaea;
-    text-align:center;
-    padding:15px;
-    margin-top:40px;
-    font-size:14px;
+  margin-top:50px;
+  padding:18px;
+  background:#e5e7eb;
+  text-align:center;
+  font-size:14px;
 }
 </style>
 </head>
@@ -107,198 +151,186 @@ footer{
 <body>
 
 <header>
-<h1>Online Workshop & Training Management System</h1>
-<p>Student & Admin Dashboard Prototype</p>
+  <h1>Online Workshop & Training Management System</h1>
+  <p>Professional Student & Admin Dashboard Prototype</p>
 </header>
 
 <nav>
-<button onclick="show('home')">Home</button>
-<button onclick="show('login')">Login</button>
-<button onclick="show('register')">Register</button>
-<button onclick="show('user')">User Dashboard</button>
-<button onclick="show('admin')">Admin Dashboard</button>
-<button onclick="show('live')">Live Session</button>
+  <button onclick="show('home')">Home</button>
+  <button onclick="show('login')">Login</button>
+  <button onclick="show('register')">Register</button>
+  <button onclick="show('user')">User Dashboard</button>
+  <button onclick="show('admin')">Admin Dashboard</button>
+  <button onclick="show('live')">Live Session</button>
 </nav>
 
 <!-- HOME -->
 <div id="home" class="screen active">
 <div class="card">
-<h2>Student Journey – Online Workshop Flow</h2>
-<p>Browse → Register → Attend → Learn → Get Certificate</p>
+  <h2>Student Journey – Online Workshop Flow</h2>
+  <p>Discover → Register → Attend → Learn → Get Certified</p>
 
-<div class="grid">
-<div class="box">
-<b>Web Development Bootcamp</b><br>
-Date: 25 April<br>
-Time: 3:00 PM<br><br>
-<button class="btn">Register</button>
-</div>
-<div class="box">
-<b>AI & Machine Learning</b><br>
-Date: 30 April<br>
-Time: 6:00 PM<br><br>
-<button class="btn">Register</button>
-</div>
-<div class="box">
-<b>Data Science with Python</b><br>
-Date: 5 May<br>
-Time: 5:00 PM<br><br>
-<button class="btn">Register</button>
-</div>
-</div>
+  <div class="grid" style="margin-top:20px">
+    <div class="box">
+      <b>Web Development Bootcamp</b><br>
+      Date: 25 April | 3:00 PM<br><br>
+      <button class="btn">Register</button>
+    </div>
+    <div class="box">
+      <b>AI & Machine Learning</b><br>
+      Date: 30 April | 6:00 PM<br><br>
+      <button class="btn">Register</button>
+    </div>
+    <div class="box">
+      <b>Data Science with Python</b><br>
+      Date: 5 May | 5:00 PM<br><br>
+      <button class="btn">Register</button>
+    </div>
+  </div>
 </div>
 </div>
 
 <!-- LOGIN -->
 <div id="login" class="screen">
 <div class="card">
-<h2>Login</h2>
-<input placeholder="Email">
-<input type="password" placeholder="Password">
+  <h2>Login</h2>
+  <input placeholder="Email Address">
+  <input type="password" placeholder="Password">
 
-<select id="role">
-<option value="user">User</option>
-<option value="admin">Admin</option>
-</select>
+  <select id="role">
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
 
-<button class="btn" onclick="login()">Login</button>
+  <button class="btn" onclick="login()">Login</button>
 </div>
 </div>
 
 <!-- REGISTER -->
 <div id="register" class="screen">
 <div class="card">
-<h2>Register</h2>
-<input placeholder="Full Name">
-<input placeholder="Email">
-<input placeholder="Mobile">
-<input type="password" placeholder="Password">
+  <h2>Create Account</h2>
+  <input placeholder="Full Name">
+  <input placeholder="Email">
+  <input placeholder="Mobile Number">
+  <input type="password" placeholder="Password">
 
-<select>
-<option>User</option>
-<option>Admin</option>
-</select>
+  <select>
+    <option>User</option>
+    <option>Admin</option>
+  </select>
 
-<button class="btn green">Create Account</button>
+  <button class="btn success">Register</button>
 </div>
 </div>
 
 <!-- USER DASHBOARD -->
 <div id="user" class="screen">
 <div class="card">
-<h2>User Dashboard</h2>
+  <h2>User Dashboard</h2>
 
-<h3>My Workshops</h3>
-<table>
-<tr><th>Workshop</th><th>Date</th><th>Status</th><th>Action</th></tr>
-<tr>
-<td>Web Development</td>
-<td>25 April</td>
-<td><span class="tag upcoming">Upcoming</span></td>
-<td><button class="btn" onclick="show('live')">Join</button></td>
-</tr>
-<tr>
-<td>AI & ML</td>
-<td>30 April</td>
-<td><span class="tag upcoming">Upcoming</span></td>
-<td><button class="btn">Join</button></td>
-</tr>
-<tr>
-<td>Data Science</td>
-<td>5 May</td>
-<td><span class="tag completed">Completed</span></td>
-<td><button class="btn green">View</button></td>
-</tr>
-</table>
+  <h3>My Enrolled Workshops</h3>
+  <table>
+    <tr>
+      <th>Workshop</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td>Web Development</td>
+      <td>25 April</td>
+      <td><span class="tag upcoming">Upcoming</span></td>
+      <td><button class="btn" onclick="show('live')">Join</button></td>
+    </tr>
+    <tr>
+      <td>AI & ML</td>
+      <td>30 April</td>
+      <td><span class="tag upcoming">Upcoming</span></td>
+      <td><button class="btn">Join</button></td>
+    </tr>
+    <tr>
+      <td>Data Science</td>
+      <td>5 May</td>
+      <td><span class="tag completed">Completed</span></td>
+      <td><button class="btn success">View</button></td>
+    </tr>
+  </table>
 
-<div class="box" style="margin-top:20px">
-<b>Post Workshop Activities</b>
-<ul>
-<li>Download Notes</li>
-<li>Watch Recorded Video</li>
-<li>Submit Feedback</li>
-<li>Download Certificate</li>
-</ul>
-</div>
+  <div class="box" style="margin-top:20px">
+    <b>Post Workshop Activities</b>
+    <ul>
+      <li>Download Study Materials</li>
+      <li>Watch Recorded Sessions</li>
+      <li>Submit Feedback</li>
+      <li>Download Certificate</li>
+    </ul>
+  </div>
 </div>
 </div>
 
 <!-- ADMIN DASHBOARD -->
 <div id="admin" class="screen">
 <div class="card">
-<h2>Admin Dashboard</h2>
+  <h2>Admin Dashboard</h2>
 
-<div class="grid">
-<div class="box"><b>Total Workshops</b><br>12</div>
-<div class="box"><b>Total Users</b><br>520</div>
-<div class="box"><b>Upcoming Sessions</b><br>4</div>
-<div class="box"><b>Completed</b><br>8</div>
-</div>
+  <div class="grid">
+    <div class="box"><b>Total Workshops</b><br>12</div>
+    <div class="box"><b>Total Users</b><br>520</div>
+    <div class="box"><b>Upcoming Sessions</b><br>4</div>
+    <div class="box"><b>Completed Sessions</b><br>8</div>
+  </div>
 
-<div class="box" style="margin-top:20px">
-<h3>Create Workshop</h3>
-<input placeholder="Workshop Title">
-<input type="date">
-<input placeholder="Trainer Name">
-<button class="btn green">Create</button>
-</div>
-
-<div class="box" style="margin-top:15px">
-<h3>Admin Controls</h3>
-<ul>
-<li>Approve Registrations</li>
-<li>Upload Materials</li>
-<li>Monitor Live Sessions</li>
-<li>Generate Reports</li>
-</ul>
-</div>
+  <div class="box" style="margin-top:20px">
+    <h3>Create New Workshop</h3>
+    <input placeholder="Workshop Title">
+    <input type="date">
+    <input placeholder="Trainer Name">
+    <button class="btn success">Create Workshop</button>
+  </div>
 </div>
 </div>
 
 <!-- LIVE SESSION -->
 <div id="live" class="screen">
 <div class="card">
-<h2>Live Workshop – Web Development</h2>
+  <h2>Live Session – Web Development</h2>
 
-<div class="grid">
-<div class="box">
-<b>Video Conference</b><br><br>
-<button class="btn">Join Live Session</button>
-</div>
+  <div class="grid">
+    <div class="box">
+      <b>Video Conference</b><br><br>
+      <button class="btn">Join Live Session</button>
+    </div>
+    <div class="box">
+      <b>Resources</b>
+      <ul>
+        <li>Slides.pdf</li>
+        <li>SourceCode.zip</li>
+      </ul>
+    </div>
+    <div class="box">
+      <b>Live Chat</b>
+      <textarea placeholder="Type your message"></textarea>
+    </div>
+  </div>
 
-<div class="box">
-<b>Resources</b>
-<ul>
-<li>Slides.pdf</li>
-<li>SourceCode.zip</li>
-</ul>
-</div>
-
-<div class="box">
-<b>Live Chat</b>
-<p>Trainer: Welcome everyone!</p>
-<textarea placeholder="Type your message"></textarea>
-</div>
-</div>
-
-<button class="btn orange" style="margin-top:15px">Submit Feedback</button>
+  <button class="btn warning" style="margin-top:20px">Submit Feedback</button>
 </div>
 </div>
 
 <footer>
-<p>FSAD Project | Online Workshop Management System</p>
+  <p>FSAD Mini Project | Online Workshop Management System</p>
 </footer>
 
 <script>
 function show(id){
-    document.querySelectorAll('.screen')
-    .forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.screen')
+  .forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 function login(){
-    const role=document.getElementById("role").value;
-    if(role==="admin") show('admin');
-    else show('user');
+  const role=document.getElementById("role").value;
+  role==="admin"?show('admin'):show('user');
 }
 </script>
 
